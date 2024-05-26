@@ -4,6 +4,10 @@ import morgan from "morgan";
 import appRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import mongoose, { connect } from "mongoose";
+
+mongoose.connect("mongodb://mongo-db/Chat-AI-MERN")
+
 config();
 const app = express();
 
