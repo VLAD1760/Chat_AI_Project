@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/backend/index.js\"",
     "build": "tsc",
-    "start": "node dist/backend/index.js"
+    "start": "node /app/dist/backend/index.js"
   },
   "keywords": [],
   "author": "",

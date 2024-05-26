@@ -1,13 +1,22 @@
-FROM node:14
+# Use an official Node.js runtime as the base image
+FROM node:22-alpine
 
+# Set the working directory
 WORKDIR /app
 
-COPY package.json .
+# Copy package.json and package-lock.json
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
+# Copy the rest of the application code
 COPY . .
 
-EXPOSE 3000
+# Build the TypeScript code
+RUN npm run build
 
-CMD ["npm", "start"]
+EXPOSE 5000
+
+# Command to run the application
+CMD ["node", "/app/dist/backend/index.js"]

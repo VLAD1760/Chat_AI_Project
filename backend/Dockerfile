@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:14
+FROM node22:alpine
 
 # Set the working directory
 WORKDIR /app
@@ -13,8 +13,10 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+EXPOSE 3000
+
 # Build the TypeScript code
 RUN npm run build
 
 # Command to run the application
-CMD ["node", "dist/backend/index.js"]
+CMD ["node", "/app/dist/backend/index.js"]
